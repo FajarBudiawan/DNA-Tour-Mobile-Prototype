@@ -1,0 +1,276 @@
+class PrayerModel {
+  final String id;
+  final String title;
+  final String category;
+  final String arabic;
+  final String latin;
+  final String translation;
+  final String meaning;
+  final String reference;
+  final String virtues;
+  final String audioUrl;
+  final bool isBookmarked;
+
+  const PrayerModel({
+    required this.id,
+    required this.title,
+    required this.category,
+    required this.arabic,
+    required this.latin,
+    required this.translation,
+    required this.meaning,
+    required this.reference,
+    required this.virtues,
+    required this.audioUrl,
+    this.isBookmarked = false,
+  });
+
+  PrayerModel copyWith({bool? isBookmarked}) {
+    return PrayerModel(
+      id: id,
+      title: title,
+      category: category,
+      arabic: arabic,
+      latin: latin,
+      translation: translation,
+      meaning: meaning,
+      reference: reference,
+      virtues: virtues,
+      audioUrl: audioUrl,
+      isBookmarked: isBookmarked ?? this.isBookmarked,
+    );
+  }
+
+  static const List<String> categories = [
+    'Semua Kategori',
+    'Favorit Saya',
+    'Persiapan Keberangkatan',
+    'Ihram & Niat',
+    'Masjidil Haram & Tawaf',
+    'Sa\'i & Tahallul',
+    'Ziarah Madinah',
+    'Doa Harian',
+  ];
+
+  static const List<PrayerModel> masterCollection = [
+    // --- Persiapan Keberangkatan ---
+    PrayerModel(
+      id: 'p_dep_1',
+      title: 'Doa Safar (Keluar Rumah)',
+      category: 'Persiapan Keberangkatan',
+      arabic: 'بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
+      latin: 'Bismillaahi tawakkaltu \'alallaahi, wa laa hawla wa laa quwwata illaa billaah',
+      translation: 'Dengan menyebut nama Allah, aku bertawakal kepada Allah. Tiada daya dan tiada kekuatan kecuali dengan pertolongan Allah.',
+      meaning: 'Penyerahan diri sepenuhnya kepada perlindungan Allah saat meninggalkan kediaman.',
+      reference: 'HR. Abu Daud no. 5095',
+      virtues: 'Mendapat petunjuk, kecukupan, dan perlindungan dari godaan setan selama perjalanan.',
+      audioUrl: 'https://audio.dnatour.com/doa_safar.mp3',
+      isBookmarked: true,
+    ),
+
+    // --- Ihram & Niat ---
+    PrayerModel(
+      id: 'p_ihr_1',
+      title: 'Niat Umrah di Miqat',
+      category: 'Ihram & Niat',
+      arabic: 'لَبَّيْكَ اللَّهُمَّ عُمْرَةً',
+      latin: 'Labbaikallahumma \'umratan',
+      translation: 'Ya Allah, aku memenuhi panggilan-Mu untuk menunaikan ibadah Umrah.',
+      meaning: 'Ikrar dimulainya ibadah Umrah dan mulai berlakunya larangan ihram.',
+      reference: 'HR. Muslim no. 1251',
+      virtues: 'Setiap langkah menuju Makkah dihitung sebagai ibadah yang besar pahalanya.',
+      audioUrl: 'https://audio.dnatour.com/niat_ihram.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_ihr_2',
+      title: 'Bacaan Talbiyah (Diperbanyak hingga Tawaf)',
+      category: 'Ihram & Niat',
+      arabic: 'لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيْكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لَا شَرِيْكَ لَكَ',
+      latin: 'Labbaikallahumma labbaik, labbaika laa syariika laka labbaik. Innal hamda wan ni\'mata laka wal mulk, laa syariika laka',
+      translation: 'Aku datang memenuhi panggilan-Mu ya Allah. Tiada sekutu bagi-Mu. Sesungguhnya segala puji, nikmat, dan kekuasaan adalah milik-Mu, tiada sekutu bagi-Mu.',
+      meaning: 'Syiar tauhid dan pernyataan pengabdian mutlak kepada Allah semata.',
+      reference: 'HR. Bukhari no. 1549',
+      virtues: 'Benda-benda di sekitar (batu, pohon) akan ikut bersaksi untuk jamaah yang bertalbiyah.',
+      audioUrl: 'https://audio.dnatour.com/talbiyah.mp3',
+      isBookmarked: true,
+    ),
+
+    // --- Masjidil Haram & Tawaf ---
+    PrayerModel(
+      id: 'p_haram_1',
+      title: 'Doa Masuk Masjidil Haram',
+      category: 'Masjidil Haram & Tawaf',
+      arabic: 'اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
+      latin: 'Allahummaftah lii abwaaba rahmatik',
+      translation: 'Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu.',
+      meaning: 'Memohon curahan rahmat ketika memasuki rumah Allah.',
+      reference: 'HR. Muslim no. 713',
+      virtues: 'Mendapat limpahan rahmat dan ketenangan di tanah suci.',
+      audioUrl: 'https://audio.dnatour.com/masuk_haram.mp3',
+      isBookmarked: false,
+    ),
+    PrayerModel(
+      id: 'p_haram_2',
+      title: 'Doa Melihat Ka\'bah',
+      category: 'Masjidil Haram & Tawaf',
+      arabic: 'اللَّهُمَّ زِدْ هَذَا الْبَيْتَ تَشْرِيفًا وَتَعْظِيمًا وَتَكْرِيمًا وَمَهَابَةً',
+      latin: 'Allahumma zid hadzal baita tasyriifan wa ta\'zhiiman wa takriiman wa mahaabatan',
+      translation: 'Ya Allah, tambahkanlah kemuliaan, keagungan, kehormatan dan kewibawaan pada Baitullah ini.',
+      meaning: 'Pengagungan rumah Allah saat pandangan pertama.',
+      reference: 'Atsar Umar bin Khattab',
+      virtues: 'Doa saat pertama kali melihat Ka\'bah sangat mustajab.',
+      audioUrl: 'https://audio.dnatour.com/lihat_kaabah.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_tawaf_1',
+      title: 'Doa Memulai Tawaf (Istilam Hajar Aswad)',
+      category: 'Masjidil Haram & Tawaf',
+      arabic: 'بِسْمِ اللَّهِ وَاللَّهُ أَكْبَرُ',
+      latin: 'Bismillaahi wallaahu akbar',
+      translation: 'Dengan nama Allah, Allah Maha Besar.',
+      meaning: 'Memulai rukun Tawaf dengan mengagungkan kebesaran Allah.',
+      reference: 'Sunnah Manasik',
+      virtues: 'Hajar Aswad akan menjadi saksi keimanan jamaah di hari kiamat.',
+      audioUrl: 'https://audio.dnatour.com/istilam_hajar.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_tawaf_2',
+      title: 'Doa Antara Rukun Yamani & Hajar Aswad (Sapu Jagat)',
+      category: 'Masjidil Haram & Tawaf',
+      arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ',
+      latin: 'Rabbanaa aatinaa fid-dunyaa hasanatan wa fil-aakhirati hasanatan wa qinaa \'adzaaban-naar',
+      translation: 'Ya Tuhan kami, berilah kami kebaikan di dunia dan kebaikan di akhirat dan peliharalah kami dari siksa neraka.',
+      meaning: 'Permohonan kebahagiaan dunia akhirat yang diajarkan langsung oleh Al-Quran.',
+      reference: 'QS. Al-Baqarah: 201',
+      virtues: 'Doa ini senantiasa dibaca Rasulullah setiap putaran Tawaf.',
+      audioUrl: 'https://audio.dnatour.com/sapujagat.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_tawaf_3',
+      title: 'Doa di Maqam Ibrahim',
+      category: 'Masjidil Haram & Tawaf',
+      arabic: 'وَاتَّخِذُوا مِنْ مَقَامِ إِبْرَاهِيمَ مُصَلًّى',
+      latin: 'Wattakhidzuu min maqaami Ibraahiima mushallaa',
+      translation: 'Dan jadikanlah sebagian Maqam Ibrahim sebagai tempat shalat.',
+      meaning: 'Ayat yang disunnahkan dibaca sebelum shalat dua rakaat setelah Tawaf.',
+      reference: 'QS. Al-Baqarah: 125',
+      virtues: 'Menyempurnakan rangkaian Tawaf sesuai sunnah Rasulullah.',
+      audioUrl: 'https://audio.dnatour.com/maqam_ibrahim.mp3',
+      isBookmarked: false,
+    ),
+    PrayerModel(
+      id: 'p_tawaf_4',
+      title: 'Doa Minum Air Zam-Zam',
+      category: 'Masjidil Haram & Tawaf',
+      arabic: 'اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا وَاسِعًا، وَشِفَاءً مِنْ كُلِّ دَاءٍ',
+      latin: 'Allahumma inni as\'aluka \'ilman naafi\'an, wa rizqan waasi\'an, wa syifaa\'an min kulli daa\'in',
+      translation: 'Ya Allah, aku memohon ilmu yang bermanfaat, rezeki yang luas, dan kesembuhan dari segala penyakit.',
+      meaning: 'Air Zamzam adalah sesuai dengan niat orang yang meminumnya.',
+      reference: 'HR. Daruquthni',
+      virtues: 'Mendapat keberkahan, kesehatan, dan diijabahnya permohonan.',
+      audioUrl: 'https://audio.dnatour.com/minum_zamzam.mp3',
+      isBookmarked: true,
+    ),
+
+    // --- Sa'i & Tahallul ---
+    PrayerModel(
+      id: 'p_sai_1',
+      title: 'Doa Menaiki Bukit Safa (Memulai Sa\'i)',
+      category: 'Sa\'i & Tahallul',
+      arabic: 'إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ. أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ',
+      latin: 'Innas-shafaa wal-marwata min sya\'aairillah. Abda\'u bimaa bada-allaahu bih',
+      translation: 'Sesungguhnya Safa dan Marwah adalah sebahagian dari syiar Allah. Aku memulai dengan apa yang Allah mulai dengannya.',
+      meaning: 'Meneladani pengorbanan Ibunda Hajar demi mencari air.',
+      reference: 'QS. Al-Baqarah: 158',
+      virtues: 'Menjadi syarat sempurnanya rukun Sa\'i.',
+      audioUrl: 'https://audio.dnatour.com/sai_safa.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_sai_2',
+      title: 'Doa di Antara Pilar Lampu Hijau',
+      category: 'Sa\'i & Tahallul',
+      arabic: 'رَبِّ اغْفِرْ وَارْحَمْ، وَاعْفُ وَتَكَرَّمْ، وَتَجَاوَزْ عَمَّا تَعْلَمْ، إِنَّكَ أَنْتَ الْأَعَزُّ الْأَكْرَمُ',
+      latin: 'Rabbighfir warham, wa\'fu wa takarram, wa tajaawaz \'ammaa ta\'lam, innaka antal a\'azzul akram',
+      translation: 'Ya Tuhanku, ampunilah, sayangilah, maafkanlah, muliakanlah, dan hapuskanlah dosa yang Engkau ketahui. Sesungguhnya Engkau Maha Perkasa lagi Maha Mulia.',
+      meaning: 'Memohon ampunan ketika berlari-lari kecil bagi jamaah laki-laki.',
+      reference: 'Atsar Ibnu Mas\'ud',
+      virtues: 'Dihapuskannya segala dosa dan ditinggikan derajat.',
+      audioUrl: 'https://audio.dnatour.com/lampu_hijau.mp3',
+      isBookmarked: false,
+    ),
+    PrayerModel(
+      id: 'p_tahallul_1',
+      title: 'Doa Tahallul (Bercukur)',
+      category: 'Sa\'i & Tahallul',
+      arabic: 'اللَّهُمَّ اجْعَلْ لِي بِكُلِّ شَعْرَةٍ نُورًا يَوْمَ الْقِيَامَةِ',
+      latin: 'Allahummaj\'al lii bikulli sya\'ratin nuuran yawmal qiyaamati',
+      translation: 'Ya Allah, jadikanlah bagiku dengan setiap helai rambut yang dipotong sebagai cahaya pada hari Kiamat.',
+      meaning: 'Menandai berakhirnya rukun Umrah dan halalnya segala larangan ihram.',
+      reference: 'Sunnah Manasik',
+      virtues: 'Rasulullah memintakan ampunan tiga kali bagi yang mencukur gundul.',
+      audioUrl: 'https://audio.dnatour.com/doa_tahallul.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_tahallul_2',
+      title: 'Doa Syukur Selesai Umrah',
+      category: 'Sa\'i & Tahallul',
+      arabic: 'الْحَمْدُ لِلَّهِ الَّذِي قَضَى عَنَّا مَنَاسِكَنَا',
+      latin: 'Alhamdulillaahil-ladzii qadhaa \'annaa manaasikanaa',
+      translation: 'Segala puji bagi Allah yang telah menyempurnakan ibadah manasik kami.',
+      meaning: 'Syukur atas selesainya rangkaian ibadah dengan selamat.',
+      reference: 'Sunnah Manasik Umrah',
+      virtues: 'Diberikan kelancaran dan diterima sebagai Umrah yang mabrur.',
+      audioUrl: 'https://audio.dnatour.com/syukur_umrah.mp3',
+      isBookmarked: false,
+    ),
+
+    // --- Ziarah Madinah ---
+    PrayerModel(
+      id: 'p_madinah_1',
+      title: 'Doa Masuk Masjid Nabawi / Raudhah',
+      category: 'Ziarah Madinah',
+      arabic: 'بِسْمِ اللَّهِ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
+      latin: 'Bismillaahi wassalaamu \'alaa Rasuulillaah, Allahummaftah lii abwaaba rahmatik',
+      translation: 'Dengan menyebut nama Allah dan kesejahteraan atas Rasulullah. Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu.',
+      meaning: 'Penghormatan saat melangkah ke masjid yang dibangun Rasulullah.',
+      reference: 'HR. Ibnu Majah',
+      virtues: 'Mendapat rahmat Allah dan keberkahan berada di taman Surga (Raudhah).',
+      audioUrl: 'https://audio.dnatour.com/masuk_nabawi.mp3',
+      isBookmarked: true,
+    ),
+    PrayerModel(
+      id: 'p_madinah_2',
+      title: 'Salam Kepada Rasulullah SAW',
+      category: 'Ziarah Madinah',
+      arabic: 'السَّلَامُ عَلَيْكَ يَا رَسُولَ اللَّهِ، وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ',
+      latin: 'Assalaamu \'alaika yaa Rasuulallaah, wa rahmatullaahi wa barakaatuh',
+      translation: 'Semoga keselamatan, rahmat Allah, dan keberkahan senantiasa tercurah kepadamu, wahai Rasulullah.',
+      meaning: 'Penghormatan terbaik saat berziarah ke makam Sang Nabi.',
+      reference: 'Sunnah Ziyarah',
+      virtues: 'Nabi SAW akan membalas salam umatnya secara langsung.',
+      audioUrl: 'https://audio.dnatour.com/salam_prophet.mp3',
+      isBookmarked: true,
+    ),
+
+    // --- Doa Harian ---
+    PrayerModel(
+      id: 'p_harian_1',
+      title: 'Sayyidul Istighfar',
+      category: 'Doa Harian',
+      arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ',
+      latin: 'Allahumma anta rabbii laa ilaaha illaa anta, khalaqtanii wa anaa \'abduka',
+      translation: 'Ya Allah, Engkau adalah Tuhanku, tiada Tuhan selain Engkau. Engkau yang menciptakanku dan aku adalah hamba-Mu.',
+      meaning: 'Raja dari segala istighfar, pengakuan dosa kepada Sang Pencipta.',
+      reference: 'HR. Bukhari no. 6306',
+      virtues: 'Membacanya dengan yakin menjamin surga bila wafat pada hari itu.',
+      audioUrl: 'https://audio.dnatour.com/sayyidul_istighfar.mp3',
+      isBookmarked: false,
+    ),
+  ];
+}
